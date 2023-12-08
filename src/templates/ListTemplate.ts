@@ -23,6 +23,12 @@ export default class ListTemplate implements DOMList{
     render(fullList: FullList): void{
         this.clear()
 
+        const itemCountElement = document.getElementById("itemCount");
+
+        if (itemCountElement) {
+          itemCountElement.textContent = fullList.list.length.toString();
+        }
+
         fullList.list.forEach(item => {
             //Cria elemento da lista <li>
             const li = document.createElement("li") as HTMLLIElement
