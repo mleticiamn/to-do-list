@@ -18,15 +18,21 @@ export default class ListTemplate implements DOMList{
 
     clear(): void{
         this.ul.innerHTML = ""
+
+        const itemCountElement = document.getElementById("itemCount");
+
+        if (itemCountElement) {
+          itemCountElement.textContent = "0";  // Define a contagem como 0 quando a lista está vazia
+        }
     }
 
     render(fullList: FullList): void{
         this.clear()
 
-        const itemCountElement = document.getElementById("itemCount");
+        const itemCountElement = document.getElementById("itemCount")
 
         if (itemCountElement) {
-          itemCountElement.textContent = fullList.list.length.toString();
+          itemCountElement.textContent = fullList.list.length.toString()
         }
 
         fullList.list.forEach(item => {
